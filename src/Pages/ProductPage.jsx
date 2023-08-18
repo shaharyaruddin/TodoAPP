@@ -109,11 +109,11 @@ export default function ProductPage() {
       <div className="container">
         <div className="text-center my-5">
           <h1>
-            {product.title} - {product.price}$
+            {products.ProductName} - {products.ProductPrice}$
           </h1>
-          <p className="text-secondary">{product.description}</p>
+          <p className="text-secondary">{products.ProductDiscription}</p>
           <div className="d-flex justify-content-center">
-            <ReactStars count={5} size={24} edit={false} value={product.rating} color2={'#ffd700'} />
+            <ReactStars count={5} size={24} edit={false} value={products.ProductRating} color2={'#ffd700'} />
           </div>
 
           <div className="my-3">
@@ -184,7 +184,7 @@ export default function ProductPage() {
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleLogin} className="mb-3">
+        {/* <form onSubmit={handleLogin} className="mb-3">
           <div className="mb-3">
             <label htmlFor="emailInput" className="form-label">
               Email
@@ -214,7 +214,7 @@ export default function ProductPage() {
           <button type="submit" className="btn btn-primary">
             Login
           </button>
-        </form>
+        </form> */}
       </div>
     </>
   );

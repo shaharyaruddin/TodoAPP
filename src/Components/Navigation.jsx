@@ -54,7 +54,7 @@ backgroundColor:'white',
       <Container>
         {/* Logo */}
         <Link to="/" style={brandStyles}>
-          <i>All in One Store</i>
+          <i>ShoeSavvy.com</i>
         </Link>
 
         {/* Collapse toggle with the new style */}

@@ -37,7 +37,7 @@ function HeaderSec(props) {
             style={{ ...headingStyle, ...contentAnimation }}
           >
             <div className="heading p-3" style={{ ...headingStyle }}>
-              Welcome <i> <span className='text-primary'></span></i> Your All in One Store
+              Welcome <i> <span className='text-primary'></span></i> Your ShoeSavvy.com
             </div>
           </animated.div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from './Navigation';
+
 const CartList = () => {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -57,7 +58,7 @@ const CartList = () => {
   };
 
   const calculateTotalPrice = () => {
-    const total = products.reduce((total, product) => total + product.price * product.productQuantity, 0);
+    const total = products.reduce((total, product) => total + product.ProductPrice * product.productQuantity, 0);
     setTotalPrice(total);
   };
 
@@ -75,76 +76,79 @@ const CartList = () => {
 
   return (
     <>
-    <Navigation />
-    <div className="container mt-5">
-      <div className="table-responsive">
-        <table className="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Product Image</th>
-              <th>Title</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {groupedProducts.map((product, index) => (
-              <tr key={index}>
-                <td>
-                  <img
-                    src={product.thumbnail}
-                    alt={product.name}
-                    style={{ width: '100px', height: '100px' }}
-                    className="img-fluid"
-                  />
-                </td>
-                <td className="text-capitalize">{product.title}</td>
-                <td>
-                  <div className="d-flex align-items-center">
+      <Navigation />
+      <div className="container mt-5">
+        <div className="table-responsive">
+          <table className="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Product Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {groupedProducts.map((product, index) => (
+                <tr key={index}>
+                  <td>
+                    <img
+                      src={product.ProductThumbnail}
+                      alt={product.name}
+                      style={{ width: '100px', height: '100px' }}
+                      className="img-fluid"
+                    />
+                  </td>
+                  <td className="text-capitalize">{product.ProductName}</td>
+                  <td>
+                    <div className="d-flex align-items-center">
+                      <button
+                        className="btn btn-dark btn-sm"
+                        onClick={() => handleDecreaseQuantity(index)}
+                      >
+                        -
+                      </button>
+                      <span className="mx-2 font-weight-bold">
+                        {product.productQuantity}
+                      </span>
+                      <button
+                        className="btn btn-dark btn-sm"
+                        onClick={() => handleIncreaseQuantity(index)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td className="font-weight-bold">${product.ProductPrice}</td>
+                  <td>
                     <button
-                      className="btn btn-dark btn-sm"
-                      onClick={() => handleDecreaseQuantity(index)}
+                      className="btn btn-danger btn-sm fw-bold"
+                      onClick={() => handleRemoveProduct(index)}
                     >
-                      -
+                      Remove
                     </button>
-                    <span className="mx-2 font-weight-bold">
-                      {product.productQuantity}
-                    </span>
-                    <button
-                      className="btn btn-dark btn-sm"
-                      onClick={() => handleIncreaseQuantity(index)}
-                    >
-                      +
-                    </button>
-                  </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan="4" className="text-right font-weight-bold">
+                  <strong>Total Price:</strong>
                 </td>
-                <td className="font-weight-bold">${product.price}</td>
-                <td>
-                  <button
-                    className="btn btn-danger btn-sm fw-bold"
-                    onClick={() => handleRemoveProduct(index)}
-                  >
-                    Remove
-                  </button>
+                <td className="font-weight-bold text-success">
+                  <strong>${totalPrice}</strong>
                 </td>
               </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan="4" className="text-right font-weight-bold">
-                <strong>Total Price:</strong>
-              </td>
-              <td className="font-weight-bold text-success">
-                <strong>${totalPrice}</strong>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
+              <button className='btn btn-dark my-5'>
+                Placed Order
+              </button>
+            </tfoot>
+          </table>
+        </div>
       </div>
-    </div>
-  </>
+    </>
   );
 };
 

@@ -19,7 +19,7 @@ function CategoryPage() {
       .then((response) => {
         const fetchedProducts = response.data.product;
         setProducts(fetchedProducts);
-        console.log(fetchedProducts);
+        // console.log(fetchedProducts);
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -67,7 +67,7 @@ function CategoryPage() {
 
       <div className="container">
         <div className="my-5 text-center">
-          {/* <h1 style={categoryTitleStyles}>{categoryName?.toUpperCase()}</h1> */}
+          <h1 style={categoryTitleStyles}>{categoryName?.toUpperCase()}</h1>
         </div>
         <div className="row">
           {products?.map((val, key) => (
@@ -75,7 +75,7 @@ function CategoryPage() {
               <Link className="text-decoration-none" to={`/products/${val?.ProductId}`}>
                 <img src={val.ProductThumbnail} alt={val.title} style={productImageStyles} />
                 <div>
-                  <p style={productTitleStyles}>{val.title}</p>
+                  <p style={productTitleStyles}>{val.ProductName}</p>
                   <p style={productPriceStyles}>${val.ProductPrice}</p>
                 </div>
                 <Button variant="dark">Add to Cart</Button>
