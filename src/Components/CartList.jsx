@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from './Navigation';
+import FooterSec from './FooterSec';
 
 const CartList = () => {
   const [products, setProducts] = useState([]);
@@ -58,18 +59,18 @@ const CartList = () => {
   };
 
   const calculateTotalPrice = () => {
-    const total = products.reduce((total, product) => total + product.ProductPrice * product.productQuantity, 0);
+    const total = products.reduce((Total,product) => Total + product.ProductPrice * product.productQuantity, 0);
     setTotalPrice(total);
   };
 
   // Group products by their ID to display as a single row in the table
   const groupedProducts = Object.values(
     products.reduce((acc, product) => {
-      const { id, price, title, thumbnail } = product;
-      if (!acc[id]) {
-        acc[id] = { ...product, productQuantity: 0 };
+      const { _id, price, title, thumbnail } = product;
+      if (!acc[_id]) {
+        acc[_id] = { ...product, productQuantity: 0 };
       }
-      acc[id].productQuantity += product.productQuantity;
+      acc[_id].productQuantity += product.productQuantity;
       return acc;
     }, {})
   );
@@ -148,9 +149,12 @@ const CartList = () => {
           </table>
         </div>
       </div>
+      <FooterSec/>
     </>
   );
 };
 
 
 export default CartList;
+
+

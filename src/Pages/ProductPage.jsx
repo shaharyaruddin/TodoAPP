@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import ImageSection from '../Components/ImageSection';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../Components/Navigation';
+import FooterSec from '../Components/FooterSec';
 
 export default function ProductPage() {
   let navigate = useNavigate();
@@ -85,7 +86,7 @@ export default function ProductPage() {
     localStorage.setItem('password', password);
     alert('Login successful');
   };
-
+ 
   useEffect(() => {
     axios
       .get('http://localhost:3500/api/get-product-by-id', {
@@ -216,6 +217,7 @@ export default function ProductPage() {
           </button>
         </form> */}
       </div>
+      <FooterSec/>
     </>
   );
 }

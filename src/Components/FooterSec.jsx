@@ -5,7 +5,7 @@ function FooterSec() {
     <footer className="bg-dark text-white text-center py-4">
       <div className="container">
         <p className="m-0">
-          &copy; {new Date().getFullYear()} All in One Store. All rights reserved.
+          &copy; {new Date().getFullYear()} ShoeSavvy.com All rights reserved.
         </p>
       </div>
     </footer>
