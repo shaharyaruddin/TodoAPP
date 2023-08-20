@@ -9,7 +9,6 @@ import ProtectedRoute from './Services/ProtectedRoute';
 import CategoryPage from './Pages/CategoryPage';
 import ProductPage from './Pages/ProductPage';
 import CartList from './Components/CartList';
-import orders from './Components/Orders';
 import Page404 from './Pages/Page404';
 
 function App() {
@@ -23,11 +22,7 @@ function App() {
         <Route path="/Categories" element={<Home />} />
         <Route path="/CartList" element={<CartList />} />
         <Route path="/products/:productID" element={<ProductPage />} />
-        <Route
-          path="/products/category/:categoryName"
-          element={<CategoryPage />}
-        />
-
+        <Route path="/products/category/:categoryName" element={<CategoryPage />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </>

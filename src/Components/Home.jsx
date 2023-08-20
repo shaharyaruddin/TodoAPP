@@ -11,7 +11,6 @@ function Home() {
 <>
 
 <Navigation/>
-
 <HeaderSec/>
 <Categories/>
 <FooterSec/>
